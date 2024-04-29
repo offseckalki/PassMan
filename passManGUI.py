@@ -108,15 +108,19 @@ def open_password_manager(user_id):
 
     def retrieve_password():
         service = simpledialog.askstring("Service Name", "Enter the service name to retrieve password:")
-        
+    
         c.execute('''SELECT password FROM passwords WHERE user_id = ? AND serv = ?''', (user_id, service))
         result = c.fetchone()
         if result:
             encrypted_password = result[0]
-            decrypted_password = cipher_suite.decrypt(encrypted_password.encode()).decode()
-            messagebox.showinfo("Password", f"Password for {service}: {decrypted_password}")
+            try:
+                decrypted_password = cipher_suite.decrypt(encrypted_password.encode()).decode()
+                messagebox.showinfo("Password", f"Password for {service}: {decrypted_password}")
+            except Exception as e:
+                messagebox.showerror("Error", f"Error decrypting password: {e}")
         else:
             messagebox.showerror("Error", f"No password found for {service}.")
+
 
     password_manager_window = tk.Tk()
     password_manager_window.title("Password Manager")
