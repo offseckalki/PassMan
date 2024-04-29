@@ -53,7 +53,10 @@
 <p><img src="https://raw.githubusercontent.com/offseckalki/PassMan/main/ScreenShots/Screenshot%20from%202024-04-29%2021-09-42.png" alt="Login Screen" /></p>
 <p>CLI (Command Line Interface)</p>
 
-<p><img src="/screenshots/password_manager.png" alt="Password Manager Interface" /></p>
+<p><img src="https://raw.githubusercontent.com/offseckalki/PassMan/main/ScreenShots/Screenshot%20from%202024-04-29%2021-10-44.png" /></p>
+<p>GUI(Graphical User InterFace)</p>
+
+<p><img src="https://raw.githubusercontent.com/offseckalki/PassMan/main/ScreenShots/Screenshot%20from%202024-04-29%2021-11-13.png" /></p>
 <p>Password Manager Interface</p>
 
 <h2>Contributing</h2>
