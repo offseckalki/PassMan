@@ -1,65 +1,66 @@
-# PassMan
+<h1>PassMan - Password Manager</h1>
 
-PassMan is a password manager application built in Python.
+<p>PassMan is a simple password manager application written in Python. It allows users to securely store and retrieve passwords for different services.</p>
 
-## Features
+<h2>Features</h2>
 
-- **User Authentication**: Users can sign up and log in securely.
-- **Password Storage**: Passwords are encrypted and stored securely.
-- **Service-based Retrieval**: Retrieve passwords for specific services.
+<ul>
+  <li><strong>User Authentication:</strong> Users can sign up and log in securely.</li>
+  <li><strong>Password Storage:</strong> Passwords are encrypted and stored in an SQLite database.</li>
+  <li><strong>Service-based Retrieval:</strong> Retrieve passwords for specific services.</li>
+</ul>
 
-## Prerequisites
+<h2>Installation</h2>
 
-- Python 3.x
-- SQLite3
+<ol>
+  <li><strong>Clone the repository:</strong></li>
+  <pre><code>git clone https://github.com/offseckalki/PassMan.git</code></pre>
 
-## Installation
+  <li><strong>Navigate to the project directory:</strong></li>
+  <pre><code>cd PassMan</code></pre>
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/offseckalki/PassMan.git
-Navigate to the project directory:
-bash
-Copy code
-cd PassMan
-Install dependencies:
-bash
-Copy code
-pip install -r requirements.txt
-Create a new SQLite database:
-bash
-Copy code
-touch passwords.db
-Usage
-Run the application:
-bash
-Copy code
-python password_manager.py
-Follow the on-screen prompts to sign up or log in.
-Use the password manager to store and retrieve passwords.
-Configuration
-Modify settings in config.py as needed.
-Contributing
-Contributions are welcome! Please fork the repository and submit pull requests.
+  <li><strong>Install dependencies:</strong></li>
+  <pre><code>pip install -r requirements.txt</code></pre>
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+  <li><strong>Create a new SQLite database:</strong></li>
+  <pre><code>touch passwords.db</code></pre>
+</ol>
 
-Acknowledgements
-Cryptography library
-SQLite database
-vbnet
-Copy code
+<h2>Usage</h2>
 
-To use this template:
+<ol>
+  <li><strong>Run the application:</strong></li>
+  <pre><code>python password_manager.py</code></pre>
 
-1. Click on the "Raw" button above to view the raw markdown content.
-2. Select all the text (Ctrl+A), copy it (Ctrl+C).
-3. Open your `README.md` file in your PassMan project repository on GitHub.
-4. Paste the copied content into the `README.md` file (Ctrl+V).
-5. Customize the information (such as project name, features, installation steps) to fit your project.
-6. Save the `README.md` file.
+  <li><strong>Use the GUI interface to sign up, log in, and manage passwords.</strong></li>
+</ol>
 
-After saving the `README.md` file, GitHub will automatically render it with proper formatting when you view your repository. You can further edit and enhance the content as needed.
+<h2>Configuration</h2>
 
-If you have any specific questions or need further assistance with your PassMan project, feel free to ask! I'm here to help.
+<ul>
+  <li>Modify settings in <code>config.py</code> as needed.</li>
+</ul>
+
+<h2>Screenshots (Optional)</h2>
+
+<p><img src="/screenshots/login.png" alt="Login Screen" /></p>
+<p>Login Screen</p>
+
+<p><img src="/screenshots/password_manager.png" alt="Password Manager Interface" /></p>
+<p>Password Manager Interface</p>
+
+<h2>Contributing</h2>
+
+<p>Contributions are welcome! Please fork the repository and submit pull requests.</p>
+
+<h2>License</h2>
+
+<p>This project is licensed under the MIT License. See the <a href="LICENSE">LICENSE</a> file for details.</p>
+
+<h2>Acknowledgements</h2>
+
+<ul>
+  <li><a href="https://cryptography.io/en/latest/">Cryptography</a> library</li>
+  <li><a href="https://www.sqlite.org/">SQLite</a> database</li>
+  <li>AI assistance in developing the GUI version</li>
+</ul>
