@@ -32,7 +32,14 @@
   <li><strong>Run the application:</strong></li>
   <pre><code>python password_manager.py</code></pre>
 
-  <li><strong>Use the GUI interface to sign up, log in, and manage passwords.</strong></li>
+  <li><strong>Use the GUI interface to sign up, log in, and manage passwords:</strong></li>
+  <p>Once the application is running, a graphical user interface (GUI) will appear where you can:</p>
+  <ul>
+    <li>Sign up with a new username and password.</li>
+    <li>Log in with your existing credentials.</li>
+    <li>Store passwords for different services securely.</li>
+    <li>Retrieve passwords for specific services.</li>
+  </ul>
 </ol>
 
 <h2>Configuration</h2>
