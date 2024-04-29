@@ -50,7 +50,7 @@
 
 <h2>Screenshots (Optional)</h2>
 
-<p><img src="[/screenshots/login.png](https://github.com/offseckalki/PassMan/blob/main/ScreenShots/Screenshot%20from%202024-04-29%2021-09-42.png?raw=true)" alt="Login Screen" /></p>
+<p><img src="https://raw.githubusercontent.com/offseckalki/PassMan/main/ScreenShots/Screenshot%20from%202024-04-29%2021-09-42.png" alt="Login Screen" /></p>
 <p>CLI (Command Line Interface)</p>
 
 <p><img src="/screenshots/password_manager.png" alt="Password Manager Interface" /></p>
