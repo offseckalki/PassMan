@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import messagebox, simpledialog
 from cryptography.fernet import Fernet
 import sqlite3
 import hashlib
@@ -17,7 +17,7 @@ c.execute('''CREATE TABLE IF NOT EXISTS passwords (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 user_id INTEGER NOT NULL,
                 serv TEXT NOT NULL,
-                password TEXT ,
+                password TEXT,
                 FOREIGN KEY (user_id) REFERENCES users(id)
             )''')
 conn.commit()
@@ -67,19 +67,19 @@ def login():
         userpass = password_entry.get()
         hashed_password = hashlib.sha256(userpass.encode()).hexdigest()
 
-        c.execute('''SELECT userpass FROM users WHERE username = ?''', (username,))
+        c.execute('''SELECT id, userpass FROM users WHERE username = ?''', (username,))
         result = c.fetchone()
         if result is None:
             messagebox.showerror("Login Failed", "Username not found.")
             return
 
-        stored_password = result[0]
-
+        user_id, stored_password = result
         if hashed_password != stored_password:
             messagebox.showerror("Login Failed", "Incorrect password.")
         else:
             messagebox.showinfo("Login Successful", "Welcome!")
             login_window.destroy()
+            open_password_manager(user_id)
 
     login_window = tk.Tk()
     login_window.title("Login")
@@ -95,6 +95,36 @@ def login():
     tk.Button(login_window, text="Login", command=authenticate_user).pack()
 
     login_window.mainloop()
+
+def open_password_manager(user_id):
+    def save_password():
+        service = simpledialog.askstring("Service Name", "Enter the service name (e.g., Gmail, Facebook):")
+        password = simpledialog.askstring("Password", "Enter the password for this service:")
+        encrypted_password = cipher_suite.encrypt(password.encode()).decode()
+        
+        c.execute('''INSERT INTO passwords (user_id, serv, password) VALUES (?, ?, ?)''', (user_id, service, encrypted_password))
+        conn.commit()
+        messagebox.showinfo("Success", "Password saved successfully.")
+
+    def retrieve_password():
+        service = simpledialog.askstring("Service Name", "Enter the service name to retrieve password:")
+        
+        c.execute('''SELECT password FROM passwords WHERE user_id = ? AND serv = ?''', (user_id, service))
+        result = c.fetchone()
+        if result:
+            encrypted_password = result[0]
+            decrypted_password = cipher_suite.decrypt(encrypted_password.encode()).decode()
+            messagebox.showinfo("Password", f"Password for {service}: {decrypted_password}")
+        else:
+            messagebox.showerror("Error", f"No password found for {service}.")
+
+    password_manager_window = tk.Tk()
+    password_manager_window.title("Password Manager")
+
+    tk.Button(password_manager_window, text="Save Password", command=save_password).pack(pady=20)
+    tk.Button(password_manager_window, text="Retrieve Password", command=retrieve_password).pack(pady=20)
+
+    password_manager_window.mainloop()
 
 def main():
     root = tk.Tk()
